@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "aiogram-courses"
+version = "0.1.0"
+description = ""
+authors = ["Ilya <airscods@gmail.com>"]
+readme = "README.md"
+packages = [{include = "aiogram_courses"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+aiogram = "^2.24"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
