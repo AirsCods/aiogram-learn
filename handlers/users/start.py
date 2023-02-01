@@ -18,8 +18,6 @@ async def bot_start(message: types.Message):
 
 @dp.message_handler(CommandStart(), IsPrivate())
 async def bot_start(message: types.Message):
-    # bot_user = await dp.bot.me
-    # deep_link = f'https://t.me/{bot_user.username}?start=123'
     deep_link = await get_start_link(payload='123')
 
     await message.answer(f'Привет, {message.from_user.full_name}!\n'
