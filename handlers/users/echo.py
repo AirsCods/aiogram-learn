@@ -1,11 +1,11 @@
 from aiogram import types
 
-from loader import dp, bot
+from loader import dp
 
 
 @dp.message_handler()
 async def bot_echo(message: types.Message):
-    bot.send_message(
+    await dp.bot.send_message(
         chat_id=message.chat.id,
         text=message.text,
     )
