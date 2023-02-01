@@ -1,6 +1,8 @@
 # from utils.set_bot_commands import set_default_commands
 from aiogram import Dispatcher, executor
-from handlers import dp
+from loader import dp
+import filters
+import handlers
 from utils.notify_admins import on_startup_notify
 
 
