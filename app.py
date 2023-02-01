@@ -1,16 +1,17 @@
-from utils.set_bot_commands import set_default_commands
+# from utils.set_bot_commands import set_default_commands
 from aiogram import Dispatcher, executor
 from handlers import dp
 from utils.notify_admins import on_startup_notify
 
 
-async def on_startup(dispathcer: Dispatcher):
+async def on_startup(dispatcher: Dispatcher):
     # import filters
     # import middlewares
     # filters.setup(dp)
     # middlewares.setup(dp)
 
-    await on_startup_notify(dp)
+    # Уведомляет при запуске
+    await on_startup_notify(dispatcher)
     # await set_default_commands(dp)
 
 
