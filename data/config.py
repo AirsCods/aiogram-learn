@@ -6,7 +6,7 @@ load_dotenv()
 
 BOT_TOKEN = os.environ.get('TOKEN')
 admins = [
-
+    os.getenv('ADMIN_ID')
 ]
 
 ip = os.getenv('ip')
