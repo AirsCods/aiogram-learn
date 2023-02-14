@@ -1,10 +1,11 @@
-# from utils.set_bot_commands import set_default_commands
 from aiogram import Dispatcher
 
 
 async def on_startup(dp: Dispatcher):
     import middlewares
+    import filters
     middlewares.setup(dp)
+    filters.setup(dp)
 
     from utils.notify_admins import on_startup_notify
     from utils.set_bot_commands import set_default_commands
