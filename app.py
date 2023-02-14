@@ -1,17 +1,14 @@
-from aiogram import Dispatcher
-
-
-async def on_startup(dp: Dispatcher):
+async def on_startup(dispatcher):
     import middlewares
     import filters
-    middlewares.setup(dp)
-    filters.setup(dp)
+    middlewares.setup(dispatcher)
+    filters.setup(dispatcher)
 
     from utils.notify_admins import on_startup_notify
     from utils.set_bot_commands import set_default_commands
 
-    await on_startup_notify(dp)
-    await set_default_commands(dp)
+    await on_startup_notify(dispatcher)
+    await set_default_commands(dispatcher)
 
 
 if __name__ == '__main__':
