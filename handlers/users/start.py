@@ -8,7 +8,7 @@ from filters import IsPrivate
 from loader import dp
 
 
-@dp.message_handler(CommandStart(deep_link=re.compile(r'\d\d\d')), IsPrivate())
+@dp.message_handler(IsPrivate(), CommandStart(deep_link=re.compile(r'\d\d\d')))
 async def bot_start(message: types.Message):
     deep_link_args = message.get_args()
     await message.answer(f'Привет, {message.from_user.full_name}!\n'
@@ -17,7 +17,7 @@ async def bot_start(message: types.Message):
                          f'Вы передали аргумент {deep_link_args}')
 
 
-@dp.message_handler(CommandStart(), IsPrivate())
+@dp.message_handler(IsPrivate(), CommandStart())
 async def bot_start(message: types.Message):
     deep_link = await get_start_link(payload='123')
 

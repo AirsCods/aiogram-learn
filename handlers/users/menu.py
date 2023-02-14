@@ -2,11 +2,12 @@ from aiogram import types
 from aiogram.dispatcher.filters import Command, Text
 from aiogram.types import ReplyKeyboardRemove
 
+from filters import IsPrivate
 from keyboards.default import menu
 from loader import dp
 
 
-@dp.message_handler(Command('menu'))
+@dp.message_handler(IsPrivate(), Command('menu'))
 async def show_menu(message: types.Message):
     await message.answer('Выберите из меню ниже', reply_markup=menu)
 
