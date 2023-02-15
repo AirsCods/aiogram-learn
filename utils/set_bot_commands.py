@@ -7,4 +7,5 @@ async def set_default_commands(dp: Dispatcher):
         # types.BotCommand('create_post', 'Предложить пост в канале.'),
         types.BotCommand('get_cat', 'Прислать кота.'),
         types.BotCommand('more_cats', 'Прислать больше.'),
+        types.BotCommand('show_on_map', 'Локация'),
     ])
