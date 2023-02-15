@@ -1,1 +1,1 @@
-from error_handler import dp
+from .error_handler import dp

@@ -5,8 +5,13 @@ from dotenv import load_dotenv
 load_dotenv()
 
 BOT_TOKEN = os.environ.get('TOKEN')
+
 admins = [
     os.getenv('ADMIN_ID')
+]
+
+channels = [
+    os.getenv('MY_CHANNEL')
 ]
 
 ip = os.getenv('ip')
