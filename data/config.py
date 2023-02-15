@@ -12,6 +12,10 @@ admins = [
     os.getenv('ADMIN_ID')
 ]
 
+allowed_users = [
+    5280548835,
+]
+
 channels = [
     os.getenv('MY_CHANNEL')
 ]
