@@ -1,5 +1,6 @@
 from aiogram import types
 from aiogram.dispatcher.filters import Command
+from aiogram.types import ReplyKeyboardRemove
 
 from keyboards.default import location_buttons
 from loader import dp
@@ -36,7 +37,8 @@ async def get_location(message: types.Message):
         f'Latitude = {latitude}\n'
         f'Longitute = {longitude}\n\n'
         f'{text}',
-        disable_web_page_preview=True
+        disable_web_page_preview=True,
+        reply_markup=ReplyKeyboardRemove()
     )
     for shop_name, distance, url, shop_location in closest_shops:
         await message.answer_location(latitude=shop_location['lat'], longitude=shop_location['lon'])
