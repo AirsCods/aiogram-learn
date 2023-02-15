@@ -4,7 +4,9 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-BOT_TOKEN = os.environ.get('TOKEN')
+BOT_TOKEN = os.getenv('TOKEN')
+
+DOWNLOAD_PATH = os.getenv('DOWNLOAD_PATH')
 
 admins = [
     os.getenv('ADMIN_ID')

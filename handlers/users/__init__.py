@@ -1,4 +1,6 @@
-from .promotion import dp
+# from .cath_media import dp
+from .sending_media import dp
 from .poster import dp
+from .promotion import dp
 
 __all__ = ['dp']
