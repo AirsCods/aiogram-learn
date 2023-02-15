@@ -10,6 +10,7 @@ packages = [{include = "aiogram_courses"}]
 python = "^3.10"
 aiogram = "^2.24"
 python-dotenv = "^0.21.1"
+loguru = "^0.6.0"
 
 
 [tool.poetry.group.dev.dependencies]
