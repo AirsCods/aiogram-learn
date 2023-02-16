@@ -13,7 +13,7 @@ def logger(statement):
 
 
 class DataBase:
-    def __init__(self, path_to_dp='main.db'):
+    def __init__(self, path_to_dp='data/main.db'):
         self.path_to_db = path_to_dp
 
     @property
