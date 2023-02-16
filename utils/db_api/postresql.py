@@ -44,7 +44,7 @@ class Database:
             id SERIAL PRIMARY KEY,
             full_name VARCHAR(255) NOT NULL,
             username VARCHAR(255) NULL,
-            telegram_id BIGINT NOT NULL
+            telegram_id BIGINT NOT NULL UNIQUE
         );
         '''
         await self.execute(command=sql, execute=True)
@@ -55,9 +55,8 @@ class Database:
 
     @staticmethod
     def format_args(sql, parameters: dict):
-        sql += ' AND '.join([
-            f'{item}=${num}' for num, item in enumerate(parameters.keys(), start=1)
-        ])
+        sql += ' AND '.join([f'{item}=${num}' for num, item in enumerate(parameters.keys(), start=1)])
+        sql += ';'
         return sql, tuple(parameters.values())
 
     async def add_user(self, full_name, username, telegram_id):
@@ -67,12 +66,11 @@ class Database:
     async def select_user(self, **kwargs):
         sql = 'SELECT * FROM Users WHERE '
         sql, parameters = self.format_args(sql, parameters=kwargs)
-        logging.debug(f'Command for select user: {sql}')
         return await self.execute(sql, *parameters, fetchrow=True)
 
     async def count_users(self):
-        sql = 'SELECT COUNT(*) FROM Users'
-        return self.execute(sql, fetchval=True)
+        sql = 'SELECT COUNT(*) FROM Users;'
+        return await self.execute(sql, fetchval=True)
 
     async def update_user_name(self, username, telegram_id):
         sql = 'UPDATE Users SET username=$1 WHERE telegram_id=$2'

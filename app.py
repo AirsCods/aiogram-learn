@@ -1,6 +1,7 @@
 import logging
 
-from loader import dp, db
+from loader import db
+from handlers import dp
 
 
 async def on_startup(dispatcher):
@@ -11,6 +12,8 @@ async def on_startup(dispatcher):
 
     logging.info('Создаем подключение к базе данных')
     await db.create()
+
+    await db.drop_table_users()
 
     logging.info('Создаем таблицу пользователей')
     await db.create_table_users()
