@@ -6,5 +6,6 @@ from .get_location import dp
 from .get_user_info import dp
 from .poster import dp
 from .promotion import dp
+from .start import dp
 
 __all__ = ['dp']
