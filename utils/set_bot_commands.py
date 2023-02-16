@@ -9,4 +9,5 @@ async def set_default_commands(dp: Dispatcher):
         types.BotCommand('more_cats', 'Прислать больше.'),
         types.BotCommand('show_on_map', 'Локация'),
         types.BotCommand('callback', 'Номерок'),
+        types.BotCommand('update_email', 'Обновка'),
     ])

@@ -12,7 +12,7 @@ async def on_startup(dispatcher):
         db.create_table_users()
     except Exception as err:
         logging.exception(err)
-    # db.delete_users()
+    db.delete_users()
     logging.info(db.select_all_users())
 
     from utils.notify_admins import on_startup_notify
